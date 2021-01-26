@@ -1,0 +1,13 @@
+// 1. Alternating Characters- You are given a string with characters 'A' and 'B' only. Your task is to change it into a string such that there 
+// are no matching adjacent characters. Do this by deleting zero or more characters in the string, and return the minimum number of deletions.
+
+function alternatingCharacters(s) {
+let originalArr = s.split('');
+  let newArr = [originalArr[0]];
+  for (let i = 1; i < originalArr.length; i++) {
+    if (originalArr[i] !== originalArr[i-1]) {
+      newArr.push(originalArr[i]);
+    }
+  }
+  return originalArr.length - newArr.length;
+}
