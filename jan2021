@@ -11,3 +11,28 @@ let originalArr = s.split('');
   }
   return originalArr.length - newArr.length;
 }
+
+// 2. Making Anagrams- Given two strings,  and , that may or may not be of the same length, determine the minimum number of 
+// character deletions required to make  and  anagrams. Any characters can be deleted from either of the strings.
+
+function makeAnagram(a, b) {
+  let bigArr;
+  let smallArr;
+  let count = 0;
+  if (a.length > b.length) {
+    bigArr = a.split('');
+    smallArr = b.split('');
+  }
+  else {
+    bigArr = b.split('');
+    smallArr = a.split('');
+  }
+
+  for(let i = 0; i < smallArr.length; i++) {    
+    if (bigArr.includes(smallArr[i])) {
+      bigArr.splice(bigArr.indexOf(smallArr[i]), 1);
+      count++;
+    }
+  }
+  return smallArr.length - count + bigArr.length;
+}
