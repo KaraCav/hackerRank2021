@@ -36,3 +36,23 @@ function makeAnagram(a, b) {
   }
   return smallArr.length - count + bigArr.length;
 }
+
+// 3. Given a 6x6 array, return the largest number created when adding together the indexes of an hourglass
+// 2 2 2
+// x 3 x
+// 1 5 4 // the 'x's represent numbers not counting toward the "hourglass" shape -> sum is 19
+function hourglassSum(arr) {
+let largestSum = -63;
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 4; j++) {
+      let sum = arr[i][j] + arr[i][j+1] +
+       arr[i][j+2] + arr[i+1][j+1] + 
+       arr[i+2][j] + arr[i+2][j+1] + 
+       arr[i+2][j+2];
+      if(sum > largestSum) {
+        largestSum = sum;
+      }
+    }
+  }
+  return largestSum;
+}
